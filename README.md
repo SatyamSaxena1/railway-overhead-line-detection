@@ -52,6 +52,14 @@ CVAT records how each shape entered the tool: 107,797 imported, 13,273 tracked, 
 |---|---|---|
 | ![Raw source videos by route](docs/images/s06-source-videos.jpg) | ![CVAT automatic annotation dialog](docs/images/s08-auto-annotate-dialog.jpg) | ![A tight, reviewed pantograph box](docs/images/s10-manual-box.jpg) |
 
+## Where it ran
+
+The system was built for a moving train, so every recording has a place as well as a picture: a field recorder captures camera video, depth and a GPS log in one session, and a GPS file of mast positions lets an alert say where it happened. The interactive route map (a logged run of about 71 km between Gonda and Bahraich, 1,188 GPS fixes) is on the [project story page](https://satyamsaxena1.github.io/railway/#route).
+
+![The operator view from a test session: settings, live video and alert tabs](docs/images/s12-alert-gui.jpg)
+
+*The operator view, from a test session at a depot (GPS not connected in this capture, about 5 FPS): detector threshold, train and pantograph heights, mast direction, per-measurement corrections, and alert tabs for stagger, height, setting distance, gradient and double contact.*
+
 ## Results
 
 Per-class validation AP@50:95:
