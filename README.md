@@ -46,7 +46,7 @@ A camera in the cab looks up at the pantograph and the overhead line. If a model
 3. **Track** boxes between frames from manual keyframes.
 4. **Review** every frame in CVAT: fix positions, classes and missing objects.
 
-CVAT records how each shape entered the tool: 107,797 imported, 13,273 tracked, 8,136 model-assisted, 2,719 semi-automatic, 1,320 drawn by hand. That is how boxes arrived, not how many I edited.
+CVAT ran on my own machine in Docker, reachable off-site through ngrok. Two roles worked each task: a labeller, and a reviewer who followed behind correcting mistakes. I switched between the roles, and was also the admin and host.
 
 | Raw source videos | Model-assisted pre-annotation | Reviewed box |
 |---|---|---|
@@ -73,16 +73,18 @@ Per-class validation AP@50:95:
 | **Overall** | **0.698** | **0.679** |
 | Validation images | 5,114 | 3,941 |
 
-**Read this carefully.** The two models were validated on different image sets, with different metric implementations and input sizes (1280 vs 1120 px), so this is not a head-to-head ranking. What holds for both: the pantograph is detected well and the contact point is the weak class, which points at the data (tiny boxes, some frames with a missing pantograph) more than at the model choice.
+**Read this carefully.** The two models were validated on different image sets, with different metric implementations and input sizes (1280 vs 1120 px), so this is not a head-to-head ranking. What holds for both: the pantograph is detected well and the contact point is the weak class, which points at the data (tiny boxes that are hard to place) more than at the model choice.
 
 ![YOLO26x early epochs: NaN losses and automatic recovery](docs/images/s11-yolo-training.jpg)
 
 ## What is still imperfect
 
-- About 5% of train and 6% of validation frames have a contact point but no pantograph box, mostly in the tracked and model-assisted video sets.
-- YOLO and RF-DETR were scored on different validation sets, and the RF-DETR validation and test splits share video segments.
+- Contact points are the weak spot: both models score about 0.39 AP@50:95 on them, against 0.90 or more for the pantograph. The boxes are around 1% of the frame width, so a few pixels of offset costs most of the overlap.
+- YOLO and RF-DETR were scored on different validation sets, and the RF-DETR validation and test splits share video segments, so its numbers are likely optimistic. There is no clean held-out test set.
 - Neighbouring video frames are near-duplicates, so the number of distinct scenes is far smaller than the frame count.
-- One annotator, five routes: no inter-annotator agreement, and a limited domain.
+- A narrow domain: five routes, a webcam plus one ZED camera, limited weather and times of day.
+- Masts and arms are middling (about 0.69 to 0.79).
+- No inter-annotator agreement: review was a second pass in CVAT, not an independent labelling.
 
 ---
 
