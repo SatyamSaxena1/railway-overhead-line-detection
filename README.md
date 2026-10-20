@@ -32,7 +32,7 @@ A camera in the cab looks up at the pantograph and the overhead line. If a model
 | Dec 2025 - Apr 2026 | **Depth exploration**: ZED 2i stereo camera, Isaac Sim synthetic scenes, Depth Anything. A real-time detection and measurement system was built and run on trains in Lucknow (not published here). |
 | May 2026 | **Wire height from depth**: ZED depth compared with Fast-FoundationStereo, with a detector finding the wires. Rotated-box experiments, then dropped. |
 | May - Jun 2026 | **Labelling campaign**: a small pretrained detector pre-annotates, tracking carries boxes between frames, and I review every frame in CVAT. |
-| 10 - 23 Jun 2026 | **YOLO26x** trained on one RTX 4070: about 57 minutes per epoch, roughly 8 days for 200 epochs. Early epochs hit NaN losses and were recovered and resumed. |
+| 10 - 23 Jun 2026 | **YOLO26x** trained on one RTX 4070 Ti: about 57 minutes per epoch, roughly 8 days for 200 epochs. Early epochs hit NaN losses and were recovered and resumed. |
 | 29 - 30 Jun 2026 | **RF-DETR Large** trained on a rented H100 (80 GB) in about 19 hours. |
 
 | Wire height from depth | ZED depth viewer (camera view blurred) |
