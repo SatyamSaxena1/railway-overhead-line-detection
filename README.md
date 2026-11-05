@@ -89,3 +89,8 @@ Per-class validation AP@50:95:
 ---
 
 &copy; 2026 Satyam Saxena. All rights reserved. This repository contains documentation and screenshots only; it contains no source code and no dataset.
+
+
+## Drone OHE inspection study
+
+A separate drone/SAM3/thermal inspection study, including evidence images, metrics, limitations and planned evaluation, is documented in [Drone OHE inspection](docs/drone-ohe-inspection.md).
